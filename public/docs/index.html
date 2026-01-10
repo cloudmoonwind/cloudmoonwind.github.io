@@ -267,6 +267,10 @@
 
 <script>
   if (window.netlifyIdentity) {
+    window.netlifyIdentity.init({
+      APIUrl: "https://keen-twilight-f8840e.netlify.app/.netlify/identity"
+    });
+
     window.netlifyIdentity.on("init", user => {
       if (!user) {
         window.netlifyIdentity.on("login", () => {
@@ -275,7 +279,6 @@
       }
     });
   }
-  console.log("Netlify Identity script loaded");
 </script>
   
 
