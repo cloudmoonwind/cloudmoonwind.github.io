@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Html on 我的博客</title>
+    <link>http://localhost:1313/tags/html/</link>
+    <description>Recent content in Html on 我的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>© 2026 CloudMoonWind</copyright>
+    <lastBuildDate>Sat, 10 Jan 2026 12:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/html/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>html初识</title>
+      <link>http://localhost:1313/posts/coding/2026-1-10-html/</link>
+      <pubDate>Sat, 10 Jan 2026 12:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/coding/2026-1-10-html/</guid>
+      <description>&lt;p&gt;空内容&lt;/p&gt;</description>
+      
+    </item>
+    
+  </channel>
+</rss>

@@ -1,15 +1,53 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Categories on Blowfish</title>
+    <title>Categories on 我的博客</title>
     <link>http://localhost:1313/categories/</link>
-    <description>Recent content in Categories on Blowfish</description>
+    <description>Recent content in Categories on 我的博客</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <managingEditor>nuno@n9o.xyz (Blowfish)</managingEditor>
-    <webMaster>nuno@n9o.xyz (Blowfish)</webMaster>
-    <copyright>© 2026 Blowfish</copyright>
-    <atom:link href="http://localhost:1313/categories/index.xml" rel="self" type="application/rss+xml" />
+    <language>zh-cn</language>
+    <copyright>© 2026 CloudMoonWind</copyright>
+    <lastBuildDate>Sat, 10 Jan 2026 13:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/categories/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>SillyTavern</title>
+      <link>http://localhost:1313/categories/sillytavern/</link>
+      <pubDate>Sat, 10 Jan 2026 13:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/categories/sillytavern/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>笔记</title>
+      <link>http://localhost:1313/categories/%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Sat, 10 Jan 2026 12:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/categories/%E7%AC%94%E8%AE%B0/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>基本技术</title>
+      <link>http://localhost:1313/categories/%E5%9F%BA%E6%9C%AC%E6%8A%80%E6%9C%AF/</link>
+      <pubDate>Sat, 10 Jan 2026 12:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/categories/%E5%9F%BA%E6%9C%AC%E6%8A%80%E6%9C%AF/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>技术</title>
+      <link>http://localhost:1313/categories/%E6%8A%80%E6%9C%AF/</link>
+      <pubDate>Sat, 10 Jan 2026 12:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/categories/%E6%8A%80%E6%9C%AF/</guid>
+      <description></description>
+      
+    </item>
     
   </channel>
 </rss>
