@@ -1,0 +1,15 @@
+backend:
+  name: github
+  repo: https://github.com/cloudmoonwind/cloudmoonwind.github.io
+  branch: main
+media_folder: "static/img"
+public_folder: "/img"
+collections:
+  - name: "posts"
+    label: "随笔"
+    folder: "content/posts"
+    create: true
+    fields:
+      - {label: "标题", name: "title", widget: "string"}
+      - {label: "日期", name: "date", widget: "datetime"}
+      - {label: "正文", name: "body", widget: "markdown"}
