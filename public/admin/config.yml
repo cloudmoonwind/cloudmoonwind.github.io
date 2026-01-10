@@ -13,7 +13,8 @@ collections:
     label: "博客文章"
     folder: "content/posts"
     create: true
-    nested: true # 允许在子目录创建内容
+    nested:
+      depth: 100 # 允许在子目录创建内容
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
       - {label: "标题", name: "title", widget: "string"}
@@ -28,7 +29,8 @@ collections:
     label: "知识库文档"
     folder: "content/docs"
     create: true
-    nested: true
+    nested:
+      depth: 100
     fields:
       - {label: "标题", name: "title", widget: "string"}
       - {label: "权重", name: "weight", widget: "number", default: 10, value_type: "int", hint: "数字越小排序越靠前"}
