@@ -5,7 +5,7 @@ backend:
   base_url: https://work-oauth.vercel.app/api # 替换为你刚才在 Vercel 部署成功的域名
 
 # 本地开发时允许使用本地文件系统（需要配合 npx decap-server 使用，否则请设为 false）
-# local_backend: true
+local_backend: false
 
 media_folder: "static/img" # 图片上传位置
 public_folder: "/img"      # 图片在网页中的引用路径
