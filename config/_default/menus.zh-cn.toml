@@ -27,12 +27,6 @@
   url = "https://github.com/nunocoracao/blowfish"
   weight = 30
 
-[[main]]
-  identifier = "github2"
-  pre = "github"
-  url = "https://github.com/nunocoracao/blowfish"
-  weight = 40
-
 [[footer]]
   name = "Privacy"
   url = "https://external-link"
