@@ -3,10 +3,67 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>网站内容管理</title>
+  <title>秘密基地</title>
+  <style>
+    .cms-switcher {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      z-index: 9999;
+      background: white;
+      padding: 10px 15px;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+      font-family: sans-serif;
+    }
+    .cms-switcher select {
+      padding: 5px 10px;
+      border-radius: 5px;
+      border: 1px solid #ddd;
+      cursor: pointer;
+    }
+  </style>
 </head>
 <body>
-  <!-- Include the script that builds the page and powers Decap CMS -->
-  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+  <div class="cms-switcher">
+    <select id="cms-select">
+      <option value="sveltia">🎨 现代风格 (Sveltia)</option>
+      <option value="decap">🦖 复古风格 (Decap)</option>
+    </select>
+  </div>
+  
+  <div id="cms-container"></div>
+  
+  <script>
+    const container = document.getElementById('cms-container');
+    const select = document.getElementById('cms-select');
+    
+    // 从 localStorage 读取上次的选择
+    const savedCMS = localStorage.getItem('preferred-cms') || 'sveltia';
+    select.value = savedCMS;
+    
+    function loadCMS(type) {
+      container.innerHTML = '';
+      
+      const script = document.createElement('script');
+      
+      if (type === 'sveltia') {
+        script.src = 'https://unpkg.com/@sveltia/cms/dist/sveltia-cms.js';
+        script.type = 'module';
+      } else {
+        script.src = 'https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js';
+      }
+      
+      container.appendChild(script);
+      localStorage.setItem('preferred-cms', type);
+    }
+    
+    select.addEventListener('change', (e) => {
+      loadCMS(e.target.value);
+    });
+    
+    // 初始加载
+    loadCMS(savedCMS);
+  </script>
 </body>
 </html>
