@@ -5,46 +5,136 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>秘密基地</title>
   <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+
+    /* 切换按钮容器 - 左下角 */
     .cms-switcher {
       position: fixed;
-      top: 10px;
-      right: 10px;
+      bottom: 24px;
+      left: 24px;
       z-index: 9999;
-      background: white;
-      padding: 10px 15px;
-      border-radius: 8px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-      font-family: sans-serif;
+      display: flex;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 8px;
+      border-radius: 12px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+      transition: all 0.3s ease;
     }
-    .cms-switcher select {
-      padding: 5px 10px;
-      border-radius: 5px;
-      border: 1px solid #ddd;
+
+    .cms-switcher:hover {
+      box-shadow: 0 6px 24px rgba(0, 0, 0, 0.16);
+    }
+
+    /* 切换按钮 */
+    .cms-btn {
+      width: 40px;
+      height: 40px;
+      border: none;
+      background: transparent;
       cursor: pointer;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s ease;
+      position: relative;
+    }
+
+    .cms-btn:hover {
+      background: rgba(0, 0, 0, 0.05);
+      transform: translateY(-2px);
+    }
+
+    .cms-btn.active {
+      background: linear-gradient(135deg, #a8e6cf 0%, #81d4fa 100%);
+    }
+
+    .cms-btn.active svg {
+      fill: white;
+    }
+
+    .cms-btn svg {
+      width: 24px;
+      height: 24px;
+      fill: #666;
+      transition: fill 0.2s ease;
+    }
+
+    /* Tooltip */
+    .cms-btn::after {
+      content: attr(data-tooltip);
+      position: absolute;
+      bottom: 100%;
+      left: 50%;
+      transform: translateX(-50%) translateY(-8px);
+      background: rgba(0, 0, 0, 0.8);
+      color: white;
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 12px;
+      white-space: nowrap;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+    }
+
+    .cms-btn:hover::after {
+      opacity: 1;
+      transform: translateX(-50%) translateY(-4px);
+    }
+
+    /* CMS 容器 */
+    #cms-container {
+      width: 100%;
+      height: 100vh;
     }
   </style>
 </head>
 <body>
+  <!-- 切换按钮 -->
   <div class="cms-switcher">
-    <select id="cms-select">
-      <option value="sveltia">🎨 现代风格 (Sveltia)</option>
-      <option value="decap">🦖 复古风格 (Decap)</option>
-    </select>
+    <button class="cms-btn active" data-cms="sveltia" data-tooltip="现代风格">
+      <!-- Sveltia 图标 - 现代/流畅 -->
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5zm0 18c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7z"/>
+        <circle cx="12" cy="13" r="4"/>
+      </svg>
+    </button>
+    
+    <button class="cms-btn" data-cms="decap" data-tooltip="复古风格">
+      <!-- Decap 图标 - 复古/经典 -->
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z"/>
+        <rect x="2" y="2" width="20" height="20" rx="2" fill="none" stroke="currentColor" stroke-width="2"/>
+      </svg>
+    </button>
   </div>
-  
+
   <div id="cms-container"></div>
   
   <script>
     const container = document.getElementById('cms-container');
-    const select = document.getElementById('cms-select');
+    const buttons = document.querySelectorAll('.cms-btn');
     
     // 从 localStorage 读取上次的选择
     const savedCMS = localStorage.getItem('preferred-cms') || 'sveltia';
-    select.value = savedCMS;
     
     function loadCMS(type) {
+      // 清空容器
       container.innerHTML = '';
       
+      // 更新按钮状态
+      buttons.forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.cms === type);
+      });
+      
+      // 加载对应的 CMS 脚本
       const script = document.createElement('script');
       
       if (type === 'sveltia') {
@@ -58,11 +148,17 @@
       localStorage.setItem('preferred-cms', type);
     }
     
-    select.addEventListener('change', (e) => {
-      loadCMS(e.target.value);
+    // 按钮点击事件
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        loadCMS(btn.dataset.cms);
+      });
     });
     
     // 初始加载
+    buttons.forEach(btn => {
+      btn.classList.toggle('active', btn.dataset.cms === savedCMS);
+    });
     loadCMS(savedCMS);
   </script>
 </body>
