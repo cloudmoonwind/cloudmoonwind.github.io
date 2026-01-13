@@ -17,7 +17,6 @@ collections:
     create: true
     nested:
       depth: 100 # 允许在子目录创建内容
-      summary:'{{date}} - {{title}}'
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
       - {label: "标题", name: "title", widget: "string"}
