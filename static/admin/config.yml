@@ -17,6 +17,12 @@ collections:
     create: true
     nested:
       depth: 100 # 允许在子目录创建内容
+      summary:'{{date}} - {{title}}'
+    meta: 
+      path:
+        widget: string
+        label: '路径'
+        index_file: 'index'
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
       - {label: "标题", name: "title", widget: "string"}
