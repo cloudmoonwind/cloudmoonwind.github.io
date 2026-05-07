@@ -2,7 +2,7 @@
 [[main]]
   name = "标签"
   pageRef = "tags"
-  weight = 20
+  weight = 10
 
 [[main]]
   name = "管理"
@@ -19,7 +19,22 @@
 [[main]]
   name = "Blog"
   pageRef = "posts"
-  weight = 10
+  weight = 16
+
+[[main]]
+  name = "设定"
+  pageRef = "world"
+  weight = 17
+
+[[main]]
+  name = "札记"
+  pageRef = "notes"
+  weight = 18
+
+[[main]]
+  name = "关于"
+  pageRef = "about"
+  weight = 20
 
 [[main]]
   pre = "github"
