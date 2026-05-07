@@ -1,0 +1,34 @@
+html {
+  font-size: 16px;
+}
+
+body {
+  background-image: none !important;
+}
+
+.prose {
+  max-width: 72ch;
+}
+
+.prose p {
+  line-height: 1.9;
+}
+
+.prose h1,
+.prose h2,
+.prose h3 {
+  letter-spacing: -0.02em;
+}
+
+.article-content {
+  font-size: 1.02rem;
+}
+
+.max-w-prose {
+  max-width: 72ch;
+}
+
+.thumbnail_card,
+img {
+  border-radius: 1rem;
+}
