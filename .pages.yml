@@ -1,0 +1,144 @@
+media:
+  input: static/uploads
+  output: /uploads
+  rename: safe
+  categories: [image, document]
+
+content:
+  - name: docs
+    label: 文档
+    type: collection
+    path: content/docs
+    filename: "{primary}.md"
+    format: yaml-frontmatter
+    fields:
+      - name: title
+        label: 标题
+        type: string
+        required: true
+      - name: date
+        label: 日期
+        type: date
+      - name: draft
+        label: 草稿
+        type: boolean
+      - name: weight
+        label: 排序
+        type: number
+      - name: tags
+        label: 标签
+        type: string
+        list: true
+      - name: body
+        label: 正文
+        type: rich-text
+  
+  - name: posts
+    label: Blogs
+    type: collection
+    path: content/posts
+    filename: "{year}-{month}-{day}-{primary}.md"
+    format: yaml-frontmatter
+    fields:
+      - name: title
+        label: 标题
+        type: string
+        required: true
+      - name: date
+        label: 日期
+        type: date
+        required: true
+      - name: draft
+        label: 草稿
+        type: boolean
+      - name: summary
+        label: 摘要
+        type: text
+      - name: tags
+        label: 标签
+        type: string
+        list: true
+      - name: categories
+        label: 分类
+        type: string
+        list: true
+      - name: body
+        label: 正文
+        type: rich-text
+
+  - name: notes
+    label: 札记
+    type: collection
+    path: content/notes
+    filename: "{year}-{month}-{day}-{primary}.md"
+    format: yaml-frontmatter
+    fields:
+      - name: title
+        label: 标题
+        type: string
+        required: true
+      - name: date
+        label: 日期
+        type: date
+        required: true
+      - name: draft
+        label: 草稿
+        type: boolean
+      - name: tags
+        label: 标签
+        type: string
+        list: true
+      - name: body
+        label: 正文
+        type: rich-text
+
+  - name: world
+    label: 设定
+    type: collection
+    path: content/world
+    filename: "{primary}.md"
+    format: yaml-frontmatter
+    fields:
+      - name: title
+        label: 标题
+        type: string
+        required: true
+      - name: date
+        label: 日期
+        type: date
+      - name: draft
+        label: 草稿
+        type: boolean
+      - name: tags
+        label: 标签
+        type: string
+        list: true
+      - name: body
+        label: 正文
+        type: rich-text
+
+  - name: homepage
+    label: 首页
+    type: file
+    path: content/_index.md
+    format: yaml-frontmatter
+    fields:
+      - name: title
+        label: 标题
+        type: string
+      - name: body
+        label: 正文
+        type: rich-text
+
+  - name: about
+    label: 关于页
+    type: file
+    path: content/about.md
+    format: yaml-frontmatter
+    fields:
+      - name: title
+        label: 标题
+        type: string
+      - name: body
+        label: 正文
+        type: rich-text
